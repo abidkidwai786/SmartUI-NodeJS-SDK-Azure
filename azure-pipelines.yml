@@ -1,19 +1,12 @@
 trigger:
   - '*'
 
-# variables:
-#   LT_USERNAME: $(UNAME)
-#   LT_ACCESS_KEY: $(AKEY)
-
 jobs:
 - job: SmartUI_Tests
   pool:
     vmImage: 'ubuntu-latest'
 
   steps:
-  # - task: UseNode@2
-  #   inputs:
-  #     version: '16.x'
 
   - script: |
       echo "Installing dependencies"
