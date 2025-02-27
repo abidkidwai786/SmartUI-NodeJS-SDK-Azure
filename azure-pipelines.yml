@@ -1,9 +1,9 @@
 trigger:
   - '*'
 
-variables:
-  LT_USERNAME: $(UNAME)
-  LT_ACCESS_KEY: $(AKEY)
+# variables:
+#   LT_USERNAME: $(UNAME)
+#   LT_ACCESS_KEY: $(AKEY)
 
 jobs:
 - job: SmartUI_Tests
@@ -22,7 +22,9 @@ jobs:
 
   - script: |
       echo "Running SmartUI tests"
-      echo $(UNAME)
+      set LT_USERNAME=$(UNAME)
+      set LT_ACCESS_KEY=$(AKEY)
+      set PROJECT_TOKEN=$(PTOKEN)
       npx smartui --version
       npx smartui exec node index.js --config smartui.json
     displayName: 'Execute SmartUI Tests'
