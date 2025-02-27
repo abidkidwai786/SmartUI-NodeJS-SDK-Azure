@@ -1,0 +1,27 @@
+trigger:
+  - '*'
+
+variables:
+  LT_USERNAME: $(LT_USERNAME)
+  LT_ACCESS_KEY: $(LT_ACCESS_KEY)
+
+jobs:
+- job: SmartUI_Tests
+  pool:
+    vmImage: 'ubuntu-latest'
+
+  steps:
+  # - task: UseNode@2
+  #   inputs:
+  #     version: '16.x'
+
+  - script: |
+      echo "Installing dependencies"
+      npm install @lambdatest/smartui-cli
+    displayName: 'Install Dependencies'
+
+  - script: |
+      echo "Running SmartUI tests"
+      npx smartui --version
+      npx smartui exec node index.js --config smartui.json
+    displayName: 'Execute SmartUI Tests'

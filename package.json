@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/4msha/nodejs-selenium-sample#readme",
   "dependencies": {
-    "selenium-webdriver": "^4.9.0"
+    "@lambdatest/selenium-driver": "^1.0.6",
+    "@lambdatest/smartui-cli": "^4.1.1",
+    "selenium-webdriver": "^4.29.0"
   }
 }

@@ -11,6 +11,7 @@
 */
 
 const webdriver = require('selenium-webdriver');
+const { smartuiSnapshot } = require('@lambdatest/selenium-driver');
 
 // username: Username can be found at automation dashboard
 const username = process.env.LT_USERNAME;
@@ -50,10 +51,12 @@ async function todoTest() {
     try {
         // Navigate to a URL, click on the first and second list items and add a new one in the list.
         await driver.get('https://lambdatest.github.io/sample-todo-app/');
+        await smartuiSnapshot(driver, "todo1");
         await driver.findElement(webdriver.By.name('li1')).click();
         console.log("Successfully clicked first list item.");
         await driver.findElement(webdriver.By.name('li2')).click();
         console.log("Successfully clicked second list item.");
+        await smartuiSnapshot(driver, "todo2");
 
         await driver.findElement(webdriver.By.id('sampletodotext')).sendKeys('Complete Lambdatest Tutorial\n');
         await driver.findElement(webdriver.By.id('addbutton')).click();
