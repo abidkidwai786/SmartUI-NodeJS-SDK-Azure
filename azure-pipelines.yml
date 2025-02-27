@@ -22,7 +22,7 @@ jobs:
 
   - script: |
       echo "Running SmartUI tests"
-      echo LT_USERNAME
+      echo $(UNAME)
       npx smartui --version
       npx smartui exec node index.js --config smartui.json
     displayName: 'Execute SmartUI Tests'
