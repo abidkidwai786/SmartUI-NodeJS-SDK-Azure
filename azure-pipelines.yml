@@ -22,9 +22,9 @@ jobs:
 
   - script: |
       echo "Running SmartUI tests"
-      set LT_USERNAME=$(UNAME)
-      set LT_ACCESS_KEY=$(AKEY)
-      set PROJECT_TOKEN=$(PTOKEN)
+      export LT_USERNAME=$(UNAME)
+      export LT_ACCESS_KEY=$(AKEY)
+      export PROJECT_TOKEN=$(PTOKEN)
       npx smartui --version
       npx smartui exec node index.js --config smartui.json
     displayName: 'Execute SmartUI Tests'
